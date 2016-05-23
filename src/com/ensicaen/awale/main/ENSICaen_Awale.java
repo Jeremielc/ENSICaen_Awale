@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -24,7 +25,7 @@ public class ENSICaen_Awale extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/com/ensicaen/awale/fxml/RootLayout.fxml"));
-            AnchorPane rootLayout = loader.load();
+            BorderPane rootLayout = loader.load();
             
             Scene scene = new Scene(rootLayout);
             

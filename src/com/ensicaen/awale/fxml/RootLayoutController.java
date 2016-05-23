@@ -17,8 +17,8 @@ public class RootLayoutController implements Initializable {
 
     private Stage owner;
     
-    @FXML private Text playerOneName, playerTowName, playerOneSeedNumber, playerStowSeedNumber;
-    @FXML private ImageView playerOneSeeds, playerTowSeeds;
+    @FXML private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
+    @FXML private ImageView playerOneSeeds, playerTwoSeeds;
     
     public RootLayoutController() {
         

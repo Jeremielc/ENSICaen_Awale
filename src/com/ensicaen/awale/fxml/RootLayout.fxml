@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ensicaen.awale.fxml.RootLayoutController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -44,22 +43,22 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lbPlayer1" layoutX="51.0" layoutY="14.0" text="Player 1 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Label fx:id="lbGrainePlayer1" layoutX="8.0" layoutY="91.0" text="Graines :" AnchorPane.leftAnchor="5.0" />
-            <Text fx:id="txtPlayer1" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
-            <Text fx:id="txtNbGrainePlayer1" layoutX="70.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" />
-            <ImageView fx:id="ivPlayer1" fitHeight="100.0" fitWidth="149.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="51.0" layoutY="14.0" text="Player 1 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutX="8.0" layoutY="91.0" text="Seeds : " AnchorPane.leftAnchor="5.0" />
+            <Text fx:id="playerOneName" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+            <Text fx:id="playerOneSeedNumber" layoutX="70.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" />
+            <ImageView fx:id="playerOneSeeds" fitHeight="100.0" fitWidth="149.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lbPlayer2" layoutX="14.0" layoutY="14.0" text="Player 2 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Label fx:id="lbGrainePlayer2" layoutX="19.0" layoutY="91.0" text="Graines : " AnchorPane.leftAnchor="5.0" />
-            <Text fx:id="txtPlayer2" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
-            <Text fx:id="txtNbGrainePlayer2" layoutX="64.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" wrappingWidth="27.21875" />
-            <ImageView fx:id="ivPlayer2" fitHeight="100.0" fitWidth="149.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="14.0" layoutY="14.0" text="Player 2 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutX="19.0" layoutY="91.0" text="Seeds : " AnchorPane.leftAnchor="5.0" />
+            <Text fx:id="playerTwoName" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+            <Text fx:id="playerTwoSeedNumber" layoutX="64.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" wrappingWidth="27.21875" />
+            <ImageView fx:id="PlayerTwoSeeds" fitHeight="100.0" fitWidth="149.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </right>
