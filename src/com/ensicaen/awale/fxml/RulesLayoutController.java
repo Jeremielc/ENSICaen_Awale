@@ -34,7 +34,6 @@ public class RulesLayoutController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         txtRules.wrapTextProperty().set(true);
-        txtRules.setStyle("-fx-font-alignment: justify");
     }
 
     public void handleRules(ActionEvent event) {
