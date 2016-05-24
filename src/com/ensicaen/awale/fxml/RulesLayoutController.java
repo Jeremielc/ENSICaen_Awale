@@ -34,6 +34,7 @@ public class RulesLayoutController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         txtRules.wrapTextProperty().set(true);
+        txtRules.setEditable(false);
     }
 
     public void handleRules(ActionEvent event) {
@@ -45,6 +46,6 @@ public class RulesLayoutController implements Initializable {
                 + "\nRègle 6 : Il faut «nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite. Si ce n'est pas possible, la partie s'arrête et le joueur qui allait jouer capture les graines restantes.\n"
                 + "\nRègle 7 : Si un coup devait prendre toutes les graines adverses, alors le coup peut être joué, mais aucune capture n'est faite : il ne faut pas « affamer » l'adversaire.\n"
                 + "\nRègle 8 : La partie s'arrête quand un des joueurs a capturé au moins 25 graines, et est désigné gagnant, ou qu'il ne reste qu'au plus 6 graines en jeu.\n"
-                + "\nRègle 9 Quand il ne reste qu'au plus 10 graines sur le plateau, le joueur qui a la main peut proposer l'abandon de la partie. Si il est accepté les deux joueurs se partagent les graines restantes. Si le total des graines du plateau est inférieur à 6, sans qu'aucun des joueurs n'a un total de graines supérieur à 24. La partie est nulle.\n");
+                + "\nRègle 9 : Quand il ne reste qu'au plus 10 graines sur le plateau, le joueur qui a la main peut proposer l'abandon de la partie. Si il est accepté les deux joueurs se partagent les graines restantes. Si le total des graines du plateau est inférieur à 6, sans qu'aucun des joueurs n'a un total de graines supérieur à 24. La partie est nulle.\n");
     }
 }
