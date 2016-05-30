@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -27,6 +28,10 @@ public class RootLayoutController implements Initializable {
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber, txtRules;
     @FXML
     private ImageView playerOneSeeds, playerTwoSeeds;
+    @FXML
+    private Button playerButton_1, playerButton_2, playerButton_3, playerButton_4, playerButton_5, playerButton_6;
+    @FXML
+    private Button opponentButton_1, opponentButton_2, opponentButton_3, opponentButton_4, opponentButton_5, opponentButton_6;
     
     public RootLayoutController() {
         
