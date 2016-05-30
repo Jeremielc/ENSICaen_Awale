@@ -27,7 +27,7 @@ public class ENSICaen_Awale extends Application {
             RootLayoutController rlc = loader.getController();
             rlc.setOwner(primaryStage);
             
-            primaryStage.getIcons().add(new Image("/com/ensicaen/awale/images/icon.png"));
+            primaryStage.getIcons().add(new Image("/com/ensicaen/awale/resources/images/icon.png"));
             primaryStage.setTitle("Awale");
             primaryStage.setScene(scene);
             primaryStage.show();
