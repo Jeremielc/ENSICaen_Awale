@@ -12,7 +12,6 @@ public class PlayerData {
     public PlayerData(String playerName) {
         this.playerName = playerName;
         this.nbCatchedSeeds = 0;
-        this.playerTurn = false;
     }
 
     public String getPlayerName() {
@@ -30,13 +29,10 @@ public class PlayerData {
     public void setNbCatchedSeeds(int nbCatchedSeeds) {
         this.nbCatchedSeeds = nbCatchedSeeds;
     }
-
-    public boolean isPlayerTurn() {
-        return playerTurn;
-    }
-
-    public void setPlayerTurn(boolean playerTurn) {
-        this.playerTurn = playerTurn;
-    }
     
+    @Override
+    public String toString() {
+        String s = playerName + ";" + nbCatchedSeeds;
+        return s;
+    }
 }

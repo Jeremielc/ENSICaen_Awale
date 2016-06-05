@@ -1,7 +1,10 @@
 package com.ensicaen.awale.fxml;
 
+import com.ensicaen.awale.pojo.PlayerData;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -22,6 +26,7 @@ import javafx.stage.Stage;
 public class RootLayoutController implements Initializable {
     
     private Stage owner;
+    private boolean chooseSeeds = false;
     
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
@@ -50,8 +55,8 @@ public class RootLayoutController implements Initializable {
         playerOneSeedNumber.setText("0");
         playerTwoSeedNumber.setText("0");
         
-        //playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_1.png"));
-        //playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_1.png"));
+        playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
+        playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         
         playerButton_1.setText("4");
         playerButton_2.setText("4");
@@ -59,6 +64,7 @@ public class RootLayoutController implements Initializable {
         playerButton_4.setText("4");
         playerButton_5.setText("4");
         playerButton_6.setText("4");
+        
         opponentButton_1.setText("4");
         opponentButton_2.setText("4");
         opponentButton_3.setText("4");
@@ -102,85 +108,182 @@ public class RootLayoutController implements Initializable {
     
     @FXML
     public void handleClose() {
-        
+        Platform.exit();
     }
     
     @FXML
     public void handleSurrend() {
+        int remainingSeeds = 48 - Integer.parseInt(playerOneSeedNumber.getText());
         
+        playerTwoSeedNumber.setText(String.valueOf(remainingSeeds));
+        playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + remainingSeeds + ".png"));
+        
+        playerButton_1.setText("0");
+        playerButton_2.setText("0");
+        playerButton_3.setText("0");
+        playerButton_4.setText("0");
+        playerButton_5.setText("0");
+        playerButton_6.setText("0");
+        
+        opponentButton_1.setText("0");
+        opponentButton_2.setText("0");
+        opponentButton_3.setText("0");
+        opponentButton_4.setText("0");
+        opponentButton_5.setText("0");
+        opponentButton_6.setText("0");
     }
     
     @FXML
     public void handleRestart() {
+        playerOneSeedNumber.setText("0");
+        playerTwoSeedNumber.setText("0");
         
+        playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
+        playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
+        
+        playerButton_1.setText("4");
+        playerButton_2.setText("4");
+        playerButton_3.setText("4");
+        playerButton_4.setText("4");
+        playerButton_5.setText("4");
+        playerButton_6.setText("4");
+        
+        opponentButton_1.setText("4");
+        opponentButton_2.setText("4");
+        opponentButton_3.setText("4");
+        opponentButton_4.setText("4");
+        opponentButton_5.setText("4");
+        opponentButton_6.setText("4");
     }
     
     @FXML
     public void handlePlayerButton_1() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handlePlayerButton_2() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handlePlayerButton_3() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handlePlayerButton_4() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handlePlayerButton_5() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handlePlayerButton_6() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handleOpponentButton_1() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handleOpponentButton_2() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handleOpponentButton_3() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handleOpponentButton_4() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handleOpponentButton_5() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
     @FXML
     public void handleOpponentButton_6() {
-        
+        if (!chooseSeeds) {
+            
+        } else {
+            
+        }
     }
     
-    private void wrapInfoToJson() {
+    private void wrapAndSendInfo() {
+        PlayerData pd = new PlayerData(playerOneName.getText());
+        pd.setNbCatchedSeeds(Integer.parseInt(playerOneSeedNumber.getText()));
         
+        String infos = pd.toString();
+        //send
     }
     
-    private void unwrapJson() {
+    private void unwrapInfo(String infos) {
+        String received = infos;
+        StringTokenizer st = new StringTokenizer(infos, ";");
         
+        int i = 0;
+        while (st.hasMoreTokens()) {
+            if (i == 0) {
+                playerTwoName.setText(st.nextToken());
+            } else if (i == 1) {
+                playerTwoSeedNumber.setText(st.nextToken());
+            }
+        }
     }
     
     public void setOwner(Stage owner) {
