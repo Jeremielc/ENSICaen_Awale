@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -11,76 +16,77 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ensicaen.awale.fxml.RootLayoutController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Connect" />
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Option">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Surrend" />
-              <MenuItem mnemonicParsing="false" text="Restart" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleRules" text="Rules" />
-              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
-   <bottom>
-      <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </bottom>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="296.0" layoutX="1.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
-               <image>
-                  <Image url="@../resources/images/awale.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="13.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="122.0" />
-            <Button layoutX="61.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="122.0" />
-            <Button layoutX="107.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="122.0" />
-            <Button layoutX="154.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="122.0" />
-            <Button layoutX="202.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="122.0" />
-            <Button layoutX="249.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="122.0" />
-            <Button layoutX="12.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="188.0" />
-            <Button layoutX="59.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="59.0" AnchorPane.topAnchor="188.0" />
-            <Button layoutX="106.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="188.0" />
-            <Button layoutX="154.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="188.0" />
-            <Button layoutX="202.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="188.0" />
-            <Button layoutX="248.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="248.0" AnchorPane.topAnchor="188.0" />
-         </children></AnchorPane>
-   </center>
-   <left>
-      <AnchorPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="51.0" layoutY="14.0" text="Player 1 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Label layoutX="8.0" layoutY="91.0" text="Seeds : " AnchorPane.leftAnchor="5.0" />
-            <Text fx:id="playerOneName" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
-            <Text fx:id="playerOneSeedNumber" layoutX="70.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" />
-            <ImageView fx:id="playerOneSeeds" fitHeight="100.0" fitWidth="149.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-   </left>
-   <right>
-      <AnchorPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Player 2 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Label layoutX="19.0" layoutY="91.0" text="Seeds : " AnchorPane.leftAnchor="5.0" />
-            <Text fx:id="playerTwoName" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
-            <Text fx:id="playerTwoSeedNumber" layoutX="64.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" wrappingWidth="27.21875" />
-            <ImageView fx:id="PlayerTwoSeeds" fitHeight="100.0" fitWidth="149.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-   </right>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ensicaen.awale.fxml.RootLayoutController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Connect" onAction="#handleConnect" />
+                        <MenuItem mnemonicParsing="false" text="Close" onAction="#handleClose" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Option">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Surrend" onAction="#handleSurrend" />
+                        <MenuItem mnemonicParsing="false" text="Restart" onAction="#handleRestart" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Rules" onAction="#handleRules"/>
+                        <MenuItem mnemonicParsing="false" text="About" onAction="#handleAbout"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    </bottom>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="296.0" layoutX="1.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
+                    <image>
+                        <Image url="@../resources/images/awale.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="opponentButton_6" layoutX="13.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_6"/>
+                <Button fx:id="opponentButton_5" layoutX="61.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_5"/>
+                <Button fx:id="opponentButton_4" layoutX="107.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_4"/>
+                <Button fx:id="opponentButton_3" layoutX="154.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_3"/>
+                <Button fx:id="opponentButton_2" layoutX="202.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_2"/>
+                <Button fx:id="opponentButton_1" layoutX="249.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_1"/>
+                <Button fx:id="playerButton_1" layoutX="12.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_1"/>
+                <Button fx:id="playerButton_2" layoutX="59.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="59.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_2"/>
+                <Button fx:id="playerButton_3" layoutX="106.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_3"/>
+                <Button fx:id="playerButton_4" layoutX="154.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_4"/>
+                <Button fx:id="playerButton_5" layoutX="202.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_5"/>
+                <Button fx:id="playerButton_6" layoutX="248.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="248.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_6"/>
+            </children>
+        </AnchorPane>
+    </center>
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="51.0" layoutY="14.0" text="Player 1 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                <Label layoutX="8.0" layoutY="91.0" text="Seeds : " AnchorPane.leftAnchor="5.0" />
+                <Text fx:id="playerOneName" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+                <Text fx:id="playerOneSeedNumber" layoutX="70.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" />
+                <ImageView fx:id="playerOneSeeds" fitHeight="100.0" fitWidth="149.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" text="Player 2 : " AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                <Label layoutX="19.0" layoutY="91.0" text="Seeds : " AnchorPane.leftAnchor="5.0" />
+                <Text fx:id="playerTwoName" layoutX="70.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+                <Text fx:id="playerTwoSeedNumber" layoutX="64.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb" wrappingWidth="27.21875" />
+                <ImageView fx:id="playerTwoSeeds" fitHeight="100.0" fitWidth="149.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+    </right>
 </BorderPane>
