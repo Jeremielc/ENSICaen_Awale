@@ -24,10 +24,9 @@ import javafx.stage.Stage;
  * @author Jérémie Leclerc : jeremie.leclerc@fime.com
  */
 public class RootLayoutController implements Initializable {
-    
+
     private Stage owner;
-    private boolean chooseSeeds = false;
-    
+
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
     @FXML
@@ -36,9 +35,9 @@ public class RootLayoutController implements Initializable {
     private Button playerButton_1, playerButton_2, playerButton_3, playerButton_4, playerButton_5, playerButton_6;
     @FXML
     private Button opponentButton_1, opponentButton_2, opponentButton_3, opponentButton_4, opponentButton_5, opponentButton_6;
-    
+
     public RootLayoutController() {
-        
+
     }
 
     /**
@@ -51,20 +50,20 @@ public class RootLayoutController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         playerOneName.setText("Player 1");
         playerTwoName.setText("Player 2");
-        
+
         playerOneSeedNumber.setText("0");
         playerTwoSeedNumber.setText("0");
-        
+
         playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
-        
+
         playerButton_1.setText("4");
         playerButton_2.setText("4");
         playerButton_3.setText("4");
         playerButton_4.setText("4");
         playerButton_5.setText("4");
         playerButton_6.setText("4");
-        
+
         opponentButton_1.setText("4");
         opponentButton_2.setText("4");
         opponentButton_3.setText("4");
@@ -72,7 +71,7 @@ public class RootLayoutController implements Initializable {
         opponentButton_5.setText("4");
         opponentButton_6.setText("4");
     }
-    
+
     @FXML
     public void handleAbout() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -81,18 +80,18 @@ public class RootLayoutController implements Initializable {
         alert.setTitle("A propos");
         alert.setContentText("Auteurs : Pierrick HUE et Jérémie LECLERC.\n"
                 + "Version : 1.0");
-        
+
         alert.showAndWait();
     }
-    
+
     public void handleRules(ActionEvent event) throws Exception {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/ensicaen/awale/fxml/RulesLayout.fxml"));
             BorderPane rulesLayout = fxmlLoader.load();
-            
+
             RulesLayoutController rlc = fxmlLoader.getController();
             rlc.handleRules(event);
-            
+
             Stage stage = new Stage();
             stage.setScene(new Scene(rulesLayout));
             stage.showAndWait();
@@ -100,31 +99,31 @@ public class RootLayoutController implements Initializable {
             e.printStackTrace(System.err);
         }
     }
-    
+
     @FXML
     public void handleConnect() {
-        
+
     }
-    
+
     @FXML
     public void handleClose() {
         Platform.exit();
     }
-    
+
     @FXML
     public void handleSurrend() {
         int remainingSeeds = 48 - Integer.parseInt(playerOneSeedNumber.getText());
-        
+
         playerTwoSeedNumber.setText(String.valueOf(remainingSeeds));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + remainingSeeds + ".png"));
-        
+
         playerButton_1.setText("0");
         playerButton_2.setText("0");
         playerButton_3.setText("0");
         playerButton_4.setText("0");
         playerButton_5.setText("0");
         playerButton_6.setText("0");
-        
+
         opponentButton_1.setText("0");
         opponentButton_2.setText("0");
         opponentButton_3.setText("0");
@@ -132,22 +131,22 @@ public class RootLayoutController implements Initializable {
         opponentButton_5.setText("0");
         opponentButton_6.setText("0");
     }
-    
+
     @FXML
     public void handleRestart() {
         playerOneSeedNumber.setText("0");
         playerTwoSeedNumber.setText("0");
-        
+
         playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
-        
+
         playerButton_1.setText("4");
         playerButton_2.setText("4");
         playerButton_3.setText("4");
         playerButton_4.setText("4");
         playerButton_5.setText("4");
         playerButton_6.setText("4");
-        
+
         opponentButton_1.setText("4");
         opponentButton_2.setText("4");
         opponentButton_3.setText("4");
@@ -155,127 +154,89 @@ public class RootLayoutController implements Initializable {
         opponentButton_5.setText("4");
         opponentButton_6.setText("4");
     }
-    
+
     @FXML
     public void handlePlayerButton_1() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+        int seedNumber = 0;
+        seedNumber = Integer.parseInt(playerButton_1.getText());
+        playerButton_1.setText("0");
     }
-    
+
     @FXML
     public void handlePlayerButton_2() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handlePlayerButton_3() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handlePlayerButton_4() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handlePlayerButton_5() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handlePlayerButton_6() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handleOpponentButton_1() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handleOpponentButton_2() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handleOpponentButton_3() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handleOpponentButton_4() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handleOpponentButton_5() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
     @FXML
     public void handleOpponentButton_6() {
-        if (!chooseSeeds) {
-            
-        } else {
-            
-        }
+
     }
-    
+
+    private void increment(Button b) {
+        int nb = 0;
+        nb = Integer.parseInt(b.getText());
+        nb++;
+
+        b.setText(String.valueOf(nb));
+    }
+
     private void wrapAndSendInfo() {
         PlayerData pd = new PlayerData(playerOneName.getText());
         pd.setNbCatchedSeeds(Integer.parseInt(playerOneSeedNumber.getText()));
-        
+
         String infos = pd.toString();
         //send
     }
-    
+
     private void unwrapInfo(String infos) {
         String received = infos;
         StringTokenizer st = new StringTokenizer(infos, ";");
-        
+
         int i = 0;
         while (st.hasMoreTokens()) {
             if (i == 0) {
@@ -285,7 +246,7 @@ public class RootLayoutController implements Initializable {
             }
         }
     }
-    
+
     public void setOwner(Stage owner) {
         this.owner = owner;
     }
