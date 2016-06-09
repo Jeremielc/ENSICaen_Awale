@@ -61,7 +61,6 @@ public class RootLayoutController implements Initializable {
         playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         
-        tab = new int[12];
         for (int i = 0; i < 12; i++) {
             tab[i] = 4;
         }
@@ -129,7 +128,6 @@ public class RootLayoutController implements Initializable {
         playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         
-        tab = new int[12];
         for (int i = 0; i < 12; i++) {
             tab[i] = 4;
         }
