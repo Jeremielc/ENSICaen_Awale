@@ -255,6 +255,10 @@ public class RootLayoutController implements Initializable {
         updateButtons();
     }
     
+    private void retrieveSeeds(int initialPos, int lastPos, int seedNumber) {
+        
+    }
+    
     private void dispatchSeeds(int position, int seedNumber) {
         int i = position;
         while (seedNumber > 0) {
@@ -262,11 +266,9 @@ public class RootLayoutController implements Initializable {
             
             if (i == position) {
                 i = (i + 1) % 12;
-                tab[i] += 1;
-            } else {
-                tab[i] += 1;
             }
             
+            tab[i] += 1;
             seedNumber -= 1;
         }
     }

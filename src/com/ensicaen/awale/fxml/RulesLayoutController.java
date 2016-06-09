@@ -38,14 +38,14 @@ public class RulesLayoutController implements Initializable {
     }
 
     public void handleRules(ActionEvent event) {
-        txtRules.setText("Règle 1 : Seulement deux joueurs peuvent s'affronter. \n"
-                + "\nRègle 2 : Forty-eight seeds are distributed in the twelve holes with four seeds per hole.\n"
-                + "\nRègle 3 : Each player plays in turn, the one that goes first is drawn at random. The player will take all the seeds in one of the holes of its territory and distribute them, by a hole in the opposite direction clockwise.\n"
-                + "\nRègle 4 : Si sa dernière graine tombe dans un trou du camp adverse et qu'il y a maintenant deux ou trois graines dans ce trou, le joueur récupère ces deux ou trois graines et les met de côté. Ensuite il regarde la case précédente : si elle est dans le camp adverse et contient deux ou trois graines, il récupère ces graines, et ainsi de suite jusqu'à ce qu'il arrive à son camp ou jusqu'à ce qu'il y ait un nombre de graines différent de deux ou trois.\n"
-                + "\nRègle 5 : On ne saute pas de case lorsqu'on égrène sauf lorsqu'on a douze graines ou plus, c'est-à-dire qu'on fait un tour complet : on ne remplit pas la case dans laquelle on vient de prendre les graines.\n"
-                + "\nRègle 6 : Il faut «nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite. Si ce n'est pas possible, la partie s'arrête et le joueur qui allait jouer capture les graines restantes.\n"
-                + "\nRègle 7 : Si un coup devait prendre toutes les graines adverses, alors le coup peut être joué, mais aucune capture n'est faite : il ne faut pas « affamer » l'adversaire.\n"
-                + "\nRègle 8 : La partie s'arrête quand un des joueurs a capturé au moins 25 graines, et est désigné gagnant, ou qu'il ne reste qu'au plus 6 graines en jeu.\n"
-                + "\nRègle 9 : Quand il ne reste qu'au plus 10 graines sur le plateau, le joueur qui a la main peut proposer l'abandon de la partie. Si il est accepté les deux joueurs se partagent les graines restantes. Si le total des graines du plateau est inférieur à 6, sans qu'aucun des joueurs n'a un total de graines supérieur à 24. La partie est nulle.\n");
+        txtRules.setText("Rule 1 : Only two palyers can compete.\n"
+                + "\nRule 2 : Forty-eight seeds are distributed in the twelve holes with four seeds per hole.\n"
+                + "\nRule 3 : Each player plays in turn, the one that goes first is drawn at random. The player will take all the seeds in one of the holes of its territory and distribute them, by a hole in the opposite direction clockwise.\n"
+                + "\nRule 4 : If the last seed falls into a hole of the other side and there are now two or three seeds in the hole, the player gets two or three seeds and puts them aside. Then he looks at the previous box: if it is in the opposite camp and contains two or three seeds, it retrieves these seeds, and so on until he came to his side or until there has a different number of seeds of two or three.\n"
+                + "\nRule 5 : It is forbidden to jump box when shells except when twelve or more seeds, that is to say, we come full circle: we do not complete box in which it has just taken the seeds.\n"
+                + "\nRule 6 : We must \"feed\" the opponent, that is to say, when it has no more seeds, be sure to make a move that allows him to play again then. If this is not possible, the game ends and the player who would play captures the remaining seeds.\n"
+                + "\nRule 7 : If a coup were to take all opposing seeds, then the shot can be played, but no capture is made: we must not \"starve\" the opponent.\n"
+                + "\nRule 8 : The game ends when one player has captured at least 25 seeds, and is designated winner, or there are no more than 6 seeds in.\n"
+                + "\nRule 9 : When there are no more than 10 seeds on the board, the player with the hand may propose the abandonment of the game. If it is accepted both players share the remaining seeds. If the total seed tray is less than 6, with no player has a total of seeds greater than 24. The game is drawn.\n");
     }
 }
