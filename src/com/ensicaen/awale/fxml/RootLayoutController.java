@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 public class RootLayoutController implements Initializable {
 
     private Stage owner;
+    private int[] tab;
 
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
@@ -37,7 +38,10 @@ public class RootLayoutController implements Initializable {
     private Button opponentButton_1, opponentButton_2, opponentButton_3, opponentButton_4, opponentButton_5, opponentButton_6;
 
     public RootLayoutController() {
-
+        tab = new int[12];
+        for (int i = 0; i < 12; i++) {
+            tab[i] = 4;
+        }
     }
 
     /**
@@ -56,20 +60,13 @@ public class RootLayoutController implements Initializable {
 
         playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
+        
+        tab = new int[12];
+        for (int i = 0; i < 12; i++) {
+            tab[i] = 4;
+        }
 
-        playerButton_1.setText("4");
-        playerButton_2.setText("4");
-        playerButton_3.setText("4");
-        playerButton_4.setText("4");
-        playerButton_5.setText("4");
-        playerButton_6.setText("4");
-
-        opponentButton_1.setText("4");
-        opponentButton_2.setText("4");
-        opponentButton_3.setText("4");
-        opponentButton_4.setText("4");
-        opponentButton_5.setText("4");
-        opponentButton_6.setText("4");
+        updateButtons();
     }
 
     @FXML
@@ -117,19 +114,11 @@ public class RootLayoutController implements Initializable {
         playerTwoSeedNumber.setText(String.valueOf(remainingSeeds));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + remainingSeeds + ".png"));
 
-        playerButton_1.setText("0");
-        playerButton_2.setText("0");
-        playerButton_3.setText("0");
-        playerButton_4.setText("0");
-        playerButton_5.setText("0");
-        playerButton_6.setText("0");
-
-        opponentButton_1.setText("0");
-        opponentButton_2.setText("0");
-        opponentButton_3.setText("0");
-        opponentButton_4.setText("0");
-        opponentButton_5.setText("0");
-        opponentButton_6.setText("0");
+        for (int i = 0; i < 12; i++) {
+            tab[i] = 0;
+        }
+        
+        updateButtons();
     }
 
     @FXML
@@ -139,27 +128,18 @@ public class RootLayoutController implements Initializable {
 
         playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
         playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_0.png"));
+        
+        tab = new int[12];
+        for (int i = 0; i < 12; i++) {
+            tab[i] = 4;
+        }
 
-        playerButton_1.setText("4");
-        playerButton_2.setText("4");
-        playerButton_3.setText("4");
-        playerButton_4.setText("4");
-        playerButton_5.setText("4");
-        playerButton_6.setText("4");
-
-        opponentButton_1.setText("4");
-        opponentButton_2.setText("4");
-        opponentButton_3.setText("4");
-        opponentButton_4.setText("4");
-        opponentButton_5.setText("4");
-        opponentButton_6.setText("4");
+        updateButtons();
     }
 
     @FXML
     public void handlePlayerButton_1() {
-        int seedNumber = 0;
-        seedNumber = Integer.parseInt(playerButton_1.getText());
-        playerButton_1.setText("0");
+        
     }
 
     @FXML
@@ -216,13 +196,21 @@ public class RootLayoutController implements Initializable {
     public void handleOpponentButton_6() {
 
     }
-
-    private void increment(Button b) {
-        int nb = 0;
-        nb = Integer.parseInt(b.getText());
-        nb++;
-
-        b.setText(String.valueOf(nb));
+    
+    private void updateButtons() {
+        playerButton_1.setText(String.valueOf(tab[0]));
+        playerButton_2.setText(String.valueOf(tab[1]));
+        playerButton_3.setText(String.valueOf(tab[2]));
+        playerButton_4.setText(String.valueOf(tab[3]));
+        playerButton_5.setText(String.valueOf(tab[4]));
+        playerButton_6.setText(String.valueOf(tab[5]));
+        
+        opponentButton_1.setText(String.valueOf(tab[6]));
+        opponentButton_2.setText(String.valueOf(tab[7]));
+        opponentButton_3.setText(String.valueOf(tab[8]));
+        opponentButton_4.setText(String.valueOf(tab[9]));
+        opponentButton_5.setText(String.valueOf(tab[10]));
+        opponentButton_6.setText(String.valueOf(tab[11]));
     }
 
     private void wrapAndSendInfo() {
