@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 public class RootLayoutController implements Initializable {
 
     private Stage owner;
-    private int[] tab;
+    private final int[] tab;
 
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
