@@ -137,62 +137,138 @@ public class RootLayoutController implements Initializable {
 
     @FXML
     public void handlePlayerButton_1() {
+        int position = 0;
+        int seedNumber = tab[position];
+        tab[position] = 0;
         
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handlePlayerButton_2() {
-
+        int position = 1;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handlePlayerButton_3() {
-
+        int position = 2;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handlePlayerButton_4() {
-
+        int position = 3;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handlePlayerButton_5() {
-
+        int position = 4;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handlePlayerButton_6() {
-
+        int position = 5;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handleOpponentButton_1() {
-
+        int position = 6;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handleOpponentButton_2() {
-
+        int position = 7;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handleOpponentButton_3() {
-
+        int position = 8;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handleOpponentButton_4() {
-
+        int position = 9;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handleOpponentButton_5() {
-
+        int position = 10;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
     }
 
     @FXML
     public void handleOpponentButton_6() {
-
+        int position = 11;
+        int seedNumber = tab[position];
+        tab[position] = 0;
+        
+        dispatchSeeds(position, seedNumber);
+        updateButtons();
+    }
+    
+    private void dispatchSeeds(int position, int seedNumber) {
+        int i = position;
+        while (seedNumber > 0) {
+            i = (i + 1) % 12;
+            
+            if (i == position) {
+                i = (i + 1) % 12;
+                tab[i] += 1;
+            } else {
+                tab[i] += 1;
+            }
+            
+            seedNumber -= 1;
+        }
     }
     
     private void updateButtons() {
