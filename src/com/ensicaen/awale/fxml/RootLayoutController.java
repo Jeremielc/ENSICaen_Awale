@@ -141,7 +141,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -151,7 +152,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -161,7 +163,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -171,7 +174,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -181,7 +185,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -191,7 +196,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -201,7 +207,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -211,7 +218,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -221,7 +229,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -231,7 +240,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -241,7 +251,8 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
 
@@ -251,15 +262,32 @@ public class RootLayoutController implements Initializable {
         int seedNumber = tab[position];
         tab[position] = 0;
         
-        dispatchSeeds(position, seedNumber);
+        int lastPos = dispatchSeeds(position, seedNumber);
+        retrieveSeeds(lastPos, seedNumber);
         updateButtons();
     }
     
-    private void retrieveSeeds(int initialPos, int lastPos, int seedNumber) {
-        
+    private void retrieveSeeds(int lastPos, int seedNumber) {
+        int i = lastPos;
+        while (seedNumber > 0) {
+            if (tab[i] == 2 || tab[i] == 3) {
+                playerOneSeedNumber.setText(String.valueOf(
+                        Integer.parseInt(playerOneSeedNumber.getText()) + tab[i])
+                );
+                tab[i] = 0;
+                
+                playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + playerOneSeedNumber.getText() + ".png"));
+                
+                i = (i + 11) % 12; //+11 pour revenir a la case précédente. 
+            } else {
+                break;
+            }
+            
+            seedNumber -= 1;
+        }
     }
     
-    private void dispatchSeeds(int position, int seedNumber) {
+    private int dispatchSeeds(int position, int seedNumber) {
         int i = position;
         while (seedNumber > 0) {
             i = (i + 1) % 12;
@@ -271,6 +299,8 @@ public class RootLayoutController implements Initializable {
             tab[i] += 1;
             seedNumber -= 1;
         }
+        
+        return i;
     }
     
     private void updateButtons() {
