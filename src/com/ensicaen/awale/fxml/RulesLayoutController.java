@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.ensicaen.awale.fxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 
 /**
+ * Manage the rules layout pop-up.
  *
  * @author Pierrick Hue & Jérémie Leclerc
  */
@@ -37,7 +32,10 @@ public class RulesLayoutController implements Initializable {
         txtRules.setEditable(false);
     }
 
-    public void handleRules(ActionEvent event) {
+    /**
+     * Displays the rules in the window.
+     */
+    public void handleRules() {
         txtRules.setText("Rule 1 : Only two palyers can compete.\n"
                 + "\nRule 2 : Forty-eight seeds are distributed in the twelve holes with four seeds per hole.\n"
                 + "\nRule 3 : Each player plays in turn, the one that goes first is drawn at random. The player will take all the seeds in one of the holes of its territory and distribute them, by a hole in the opposite direction clockwise.\n"

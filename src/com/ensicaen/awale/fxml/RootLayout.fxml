@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -16,26 +11,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ensicaen.awale.fxml.RootLayoutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ensicaen.awale.fxml.RootLayoutController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Connect" onAction="#handleConnect" />
-                        <MenuItem mnemonicParsing="false" text="Close" onAction="#handleClose" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleConnect" text="Connect" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Option">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Surrend" onAction="#handleSurrend" />
-                        <MenuItem mnemonicParsing="false" text="Restart" onAction="#handleRestart" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSurrend" text="Surrend" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleRestart" text="Restart" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Rules" onAction="#handleRules"/>
-                        <MenuItem mnemonicParsing="false" text="About" onAction="#handleAbout"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleRules" text="Rules" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
                     </items>
                 </Menu>
             </menus>
@@ -45,25 +40,25 @@
         <AnchorPane prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
     </bottom>
     <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="332.0" prefWidth="362.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="296.0" layoutX="1.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
-                    <image>
-                        <Image url="@../resources/images/awale.png" />
-                    </image>
-                </ImageView>
-                <Button fx:id="opponentButton_6" layoutX="13.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_6"/>
-                <Button fx:id="opponentButton_5" layoutX="61.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_5"/>
-                <Button fx:id="opponentButton_4" layoutX="107.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="107.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_4"/>
-                <Button fx:id="opponentButton_3" layoutX="154.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_3"/>
-                <Button fx:id="opponentButton_2" layoutX="202.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_2"/>
-                <Button fx:id="opponentButton_1" layoutX="249.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="122.0" onAction="#handleOpponentButton_1"/>
-                <Button fx:id="playerButton_1" layoutX="12.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_1"/>
-                <Button fx:id="playerButton_2" layoutX="59.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="59.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_2"/>
-                <Button fx:id="playerButton_3" layoutX="106.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_3"/>
-                <Button fx:id="playerButton_4" layoutX="154.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_4"/>
-                <Button fx:id="playerButton_5" layoutX="202.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_5"/>
-                <Button fx:id="playerButton_6" layoutX="248.0" layoutY="188.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="34.0" text="Button" AnchorPane.leftAnchor="248.0" AnchorPane.topAnchor="188.0" onAction="#handlePlayerButton_6"/>
+            <ImageView fitHeight="150.0" fitWidth="358.0" layoutX="2.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/Awale.png" />
+               </image>
+            </ImageView>
+                <Button fx:id="opponentButton_6" layoutX="13.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleOpponentButton_6" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="91.0" />
+                <Button fx:id="opponentButton_5" layoutX="73.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleOpponentButton_5" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="73.0" AnchorPane.topAnchor="91.0" />
+                <Button fx:id="opponentButton_4" layoutX="134.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleOpponentButton_4" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="91.0" />
+                <Button fx:id="opponentButton_3" layoutX="192.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleOpponentButton_3" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="192.0" AnchorPane.topAnchor="91.0" />
+                <Button fx:id="opponentButton_2" layoutX="251.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleOpponentButton_2" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="251.0" AnchorPane.topAnchor="91.0" />
+                <Button fx:id="opponentButton_1" layoutX="311.0" layoutY="91.0" mnemonicParsing="false" onAction="#handleOpponentButton_1" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="91.0" />
+                <Button fx:id="playerButton_1" layoutX="13.0" layoutY="151.0" mnemonicParsing="false" onAction="#handlePlayerButton_1" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="151.0" />
+                <Button fx:id="playerButton_2" layoutX="73.0" layoutY="151.0" mnemonicParsing="false" onAction="#handlePlayerButton_2" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="73.0" AnchorPane.topAnchor="151.0" />
+                <Button fx:id="playerButton_3" layoutX="134.0" layoutY="151.0" mnemonicParsing="false" onAction="#handlePlayerButton_3" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="151.0" />
+                <Button fx:id="playerButton_4" layoutX="192.0" layoutY="151.0" mnemonicParsing="false" onAction="#handlePlayerButton_4" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="192.0" AnchorPane.topAnchor="151.0" />
+                <Button fx:id="playerButton_5" layoutX="251.0" layoutY="151.0" mnemonicParsing="false" onAction="#handlePlayerButton_5" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="251.0" AnchorPane.topAnchor="151.0" />
+                <Button fx:id="playerButton_6" layoutX="311.0" layoutY="151.0" mnemonicParsing="false" onAction="#handlePlayerButton_6" prefHeight="26.0" prefWidth="38.0" text="48" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="151.0" />
             </children>
         </AnchorPane>
     </center>

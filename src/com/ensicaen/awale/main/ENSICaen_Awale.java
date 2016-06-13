@@ -10,23 +10,25 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Jérémie Leclerc : jeremie.leclerc@fime.com
+ * @author Pierrick Hue & Jérémie Leclerc
  */
 public class ENSICaen_Awale extends Application {
 
     @Override
+    /**
+     * Launch the javaFX stage and scene.
+     */
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/com/ensicaen/awale/fxml/RootLayout.fxml"));
             BorderPane rootLayout = loader.load();
-            
+
             Scene scene = new Scene(rootLayout);
-            
+
             RootLayoutController rlc = loader.getController();
             rlc.setOwner(primaryStage);
-            
+
             primaryStage.getIcons().add(new Image("/com/ensicaen/awale/resources/images/icon.png"));
             primaryStage.setTitle("Awale");
             primaryStage.setScene(scene);
@@ -37,6 +39,8 @@ public class ENSICaen_Awale extends Application {
     }
 
     /**
+     * Program entry point. Automatically call the start() method.
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
