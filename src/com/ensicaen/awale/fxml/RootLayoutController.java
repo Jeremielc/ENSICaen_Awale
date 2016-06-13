@@ -1,6 +1,10 @@
 package com.ensicaen.awale.fxml;
 
 import com.ensicaen.awale.pojo.PlayerData;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
@@ -14,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -27,6 +32,7 @@ public class RootLayoutController implements Initializable {
 
     private Stage owner;
     private final int[] tab;
+    private final Socket socket;
 
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
@@ -38,6 +44,7 @@ public class RootLayoutController implements Initializable {
     private Button opponentButton_1, opponentButton_2, opponentButton_3, opponentButton_4, opponentButton_5, opponentButton_6;
 
     public RootLayoutController() {
+        socket = new Socket();
         tab = new int[12];
         for (int i = 0; i < 12; i++) {
             tab[i] = 4;
@@ -108,7 +115,60 @@ public class RootLayoutController implements Initializable {
      * Handle the connect button actions.
      */
     public void handleConnect() {
+        String ip = "";
+        int port = 0;
 
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/ensicaen/awale/fxml/ConnectionLayout.fxml"));
+
+            AnchorPane connectionLayout = loader.load();
+            Scene scene = new Scene(connectionLayout);
+            Stage connectionStage = new Stage();
+            connectionStage.setScene(scene);
+
+            ConnectionLayoutController clc = loader.getController();
+            clc.setConnectionStage(connectionStage);
+
+            connectionStage.showAndWait();
+
+            StringTokenizer st = new StringTokenizer(clc.getParameters(), ";");
+            int i = 0;
+            while (st.hasMoreTokens()) {
+                switch (i) {
+                    case 0:
+                        ip = st.nextToken();
+                        break;
+                    case 1:
+                        port = Integer.parseInt(st.nextToken());
+                        break;
+                    case 2:
+                        playerOneName.setText(st.nextToken());
+                        break;
+                    default:
+                        break;
+                }
+
+                i++;
+            }
+
+            SocketAddress sa = new InetSocketAddress(ip, port);
+            socket.connect(sa);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.err);
+        }
+    }
+
+    @FXML
+    /**
+     * Handle the disconnect button actions.
+     */
+    public void handleDisconnect() {
+        try {
+            socket.close();
+        } catch (IOException ex) {
+            ex.printStackTrace(System.err);
+        }
     }
 
     @FXML

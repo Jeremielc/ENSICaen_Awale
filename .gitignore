@@ -2,3 +2,4 @@
 build/
 dist/ENSICaen_Awale.*
 dist/web-files
+dist/run*

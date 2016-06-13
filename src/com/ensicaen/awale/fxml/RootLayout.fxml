@@ -18,6 +18,7 @@
                 <Menu mnemonicParsing="false" text="File">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#handleConnect" text="Connect" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleDisconnect" text="Disconnect" />
                         <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Close" />
                     </items>
                 </Menu>
