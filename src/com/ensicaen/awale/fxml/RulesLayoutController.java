@@ -9,7 +9,7 @@ import javafx.scene.control.TextArea;
 /**
  * Manage the rules layout pop-up.
  *
- * @author Pierrick Hue & Jérémie Leclerc
+ * @author Pierrick Hue and Jérémie Leclerc
  */
 public class RulesLayoutController implements Initializable {
 

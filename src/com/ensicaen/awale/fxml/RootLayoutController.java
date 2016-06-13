@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 /**
  * FXML Root layout Controller class. Manage all actions inside the view.
  *
- * @author Pierrick Hue & Jérémie Leclerc
+ * @author Pierrick Hue and Jérémie Leclerc
  */
 public class RootLayoutController implements Initializable {
 

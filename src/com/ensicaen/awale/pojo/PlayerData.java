@@ -4,7 +4,7 @@ package com.ensicaen.awale.pojo;
  * This class is used for storage purpose. It is intended to contain player
  * informations.
  *
- * @author Pierrick Hue & Jérémie Leclerc
+ * @author Pierrick Hue and Jérémie Leclerc
  */
 public class PlayerData {
 

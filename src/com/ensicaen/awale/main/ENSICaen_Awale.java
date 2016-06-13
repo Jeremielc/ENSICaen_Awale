@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * @author Pierrick Hue & Jérémie Leclerc
+ * @author Pierrick Hue and Jérémie Leclerc
  */
 public class ENSICaen_Awale extends Application {
 
