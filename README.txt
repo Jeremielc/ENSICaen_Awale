@@ -4,6 +4,11 @@ Date :          Juin 2016
 Dépot GitHub :  https://github.com/Jeremielc/ENSICaen_Awale.git
                 https://github.com/Jeremielc/ENSICaen_AwaleServer.git
 
+################################ Etat du projet ################################
+Dans l'état actuel des choses, seul la version locale du jeu fonctionne.
+La communication avec le serveur peut etre initialisée mais aucune donnée ne
+transite par celui ci.
+
 ################################ Mode d'emploi #################################
 Lancer le programme ENSICaen_AwaleServer.jar.
 Une fois lancé, celui ci se met en attente de connexion des deux joueurs.
@@ -12,21 +17,34 @@ Une fois lancé, rendez-vous dans le menu "File" et sélectionnez "connect".
 Dans la fenêtre que s'ouvre, rentrez les information du serveur. Le port de
 communication est configuré par défaut sur 15425.
 
-Remarque : il n'est pas nécessaire de disposer de 3 machines pour joueur (deux
+Remarque 1 : Il n'est pas nécessaire de disposer de 3 machines pour joueur (deux
 joueurs plus un serveur). En effet, l'un des joueurs peut jouer le rôle de la
 machine hôte. Il devra alors utiliser l'adresse IP 127.0.0.1 comme adresse IP
 du serveur.
 
-############################ Difficulté rencontrées ############################
+Remarque 2 : Comme l'implémentation du serveur n'est pas terminée, inutilse de
+suivre tous les point de la connexion. La version locale fonctionne sans que
+l'on ait besoin de se connecter.
 
+############################ Difficulté rencontrées ############################
+Synchronisation des joueurs au travers du serveur.
+Manque de temps pour finir le projet.
 
 ############################## Gestion de projet ###############################
 Pour faciliter la communication et le transferts des codes sources, nous avons
-utiliser un dépôt Git pour chaque projet (le serveur étant développé
+utilisé un dépôt Git pour chaque projet (le serveur étant développé
 séparément du jeu de base).
 
 Le serveur ne sert que de routeur entre les deux joueurs.
 L’intelligence derrière le jeu est gérée par le client de l’utilisateur.
+
+Dans un premier temps, il a été decidé de créer un jeu pouvant être jouer seul.
+Par la suite, nous avons rajouté l'alternance des tours, le rammassage des
+graines, etc.
+
+Dans un second temps, un serveur à été développé pour permettre de transferer
+des données entre les deux joueurs (laissant ainsi la partie intelligente de
+l'application dans le client de jeu).
 
 ############################### Règles du jeu ##################################
 Règle 1 : Seulement deux joueurs peuvent s'affronter
