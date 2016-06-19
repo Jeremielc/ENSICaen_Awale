@@ -1,6 +1,8 @@
 package com.ensicaen.awale.fxml;
 
 import com.ensicaen.awale.pojo.PlayerData;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -34,6 +36,7 @@ public class RootLayoutController implements Initializable {
     private final int[] tab;
     private final Socket socket;
     private boolean playerTurn = true;
+    private boolean isConnected = false;
 
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
@@ -133,7 +136,7 @@ public class RootLayoutController implements Initializable {
 
             connectionStage.showAndWait();
 
-            if (!clc.getParameters().contains(";;") /*Un des paramtetres est vide.*/) {
+            if (!clc.getParameters().contains(";;") /*Un des parametres est vide.*/) {
                 StringTokenizer st = new StringTokenizer(clc.getParameters(), ";");
                 int i = 0;
                 while (st.hasMoreTokens()) {
@@ -150,15 +153,17 @@ public class RootLayoutController implements Initializable {
                         default:
                             break;
                     }
-
                     i++;
                 }
 
                 SocketAddress sa = new InetSocketAddress(ip, port);
                 socket.connect(sa);
+                isConnected = true;
+
             }
         } catch (IOException ex) {
             ex.printStackTrace(System.err);
+            isConnected = false;
         }
     }
 
@@ -169,6 +174,7 @@ public class RootLayoutController implements Initializable {
     public void handleDisconnect() {
         try {
             socket.close();
+            isConnected = false;
         } catch (IOException ex) {
             ex.printStackTrace(System.err);
         }
@@ -422,7 +428,7 @@ public class RootLayoutController implements Initializable {
 
                     playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + playerTwoSeedNumber.getText() + ".png"));
                 }
-                
+
                 i = (i + 11) % 12; //+11 pour revenir a la case précédente.
             } else {
                 break;
@@ -512,7 +518,16 @@ public class RootLayoutController implements Initializable {
         pd.setNbCatchedSeeds(Integer.parseInt(playerOneSeedNumber.getText()));
 
         String infos = pd.toString();
-        //send
+        infos += ";" + tab[0] + ";" + tab[1] + ";" + tab[2] + ";" + tab[3] + ";" + tab[4] + ";" + tab[5];
+        infos += ";" + tab[6] + ";" + tab[7] + ";" + tab[8] + ";" + tab[9] + ";" + tab[10] + ";" + tab[11];
+        
+        System.out.println(infos);
+        try {
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            dos.writeUTF(infos);
+        } catch (IOException ex) {
+            ex.printStackTrace(System.err);
+        }
     }
 
     /**
@@ -520,16 +535,62 @@ public class RootLayoutController implements Initializable {
      *
      * @param infos A string representing the infos.
      */
-    private void unwrapInfo(String infos) {
-        String received = infos;
+    private void unwrapInfo() {
+        String infos = "";
+        try {
+            DataInputStream dis = new DataInputStream(socket.getInputStream());
+            infos = dis.readUTF();
+        } catch (IOException ex) {
+            ex.printStackTrace(System.err);
+        }
+        
         StringTokenizer st = new StringTokenizer(infos, ";");
 
         int i = 0;
         while (st.hasMoreTokens()) {
-            if (i == 0) {
-                playerTwoName.setText(st.nextToken());
-            } else if (i == 1) {
-                playerTwoSeedNumber.setText(st.nextToken());
+            switch (i) {
+                case 0:
+                    playerTwoName.setText(st.nextToken());
+                    break;
+                case 1:
+                    playerTwoSeedNumber.setText(st.nextToken());
+                    break;
+                case 2:
+                    tab[0] = Integer.parseInt(st.nextToken());
+                    break;
+                case 3:
+                    tab[1] = Integer.parseInt(st.nextToken());
+                    break;
+                case 4:
+                    tab[2] = Integer.parseInt(st.nextToken());
+                    break;
+                case 5:
+                    tab[3] = Integer.parseInt(st.nextToken());
+                    break;
+                case 6:
+                    tab[4] = Integer.parseInt(st.nextToken());
+                    break;
+                case 7:
+                    tab[5] = Integer.parseInt(st.nextToken());
+                    break;
+                case 8:
+                    tab[6] = Integer.parseInt(st.nextToken());
+                    break;
+                case 9:
+                    tab[7] = Integer.parseInt(st.nextToken());
+                    break;
+                case 10:
+                    tab[8] = Integer.parseInt(st.nextToken());
+                    break;
+                case 11:
+                    tab[9] = Integer.parseInt(st.nextToken());
+                    break;
+                case 12:
+                    tab[10] = Integer.parseInt(st.nextToken());
+                    break;
+                case 13:
+                    tab[11] = Integer.parseInt(st.nextToken());
+                    break;
             }
         }
     }
