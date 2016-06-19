@@ -33,6 +33,7 @@ public class RootLayoutController implements Initializable {
     private Stage owner;
     private final int[] tab;
     private final Socket socket;
+    private boolean playerTurn = true;
 
     @FXML
     private Text playerOneName, playerTwoName, playerOneSeedNumber, playerTwoSeedNumber;
@@ -132,28 +133,30 @@ public class RootLayoutController implements Initializable {
 
             connectionStage.showAndWait();
 
-            StringTokenizer st = new StringTokenizer(clc.getParameters(), ";");
-            int i = 0;
-            while (st.hasMoreTokens()) {
-                switch (i) {
-                    case 0:
-                        ip = st.nextToken();
-                        break;
-                    case 1:
-                        port = Integer.parseInt(st.nextToken());
-                        break;
-                    case 2:
-                        playerOneName.setText(st.nextToken());
-                        break;
-                    default:
-                        break;
+            if (!clc.getParameters().contains(";;") /*Un des paramtetres est vide.*/) {
+                StringTokenizer st = new StringTokenizer(clc.getParameters(), ";");
+                int i = 0;
+                while (st.hasMoreTokens()) {
+                    switch (i) {
+                        case 0:
+                            ip = st.nextToken();
+                            break;
+                        case 1:
+                            port = Integer.parseInt(st.nextToken());
+                            break;
+                        case 2:
+                            playerOneName.setText(st.nextToken());
+                            break;
+                        default:
+                            break;
+                    }
+
+                    i++;
                 }
 
-                i++;
+                SocketAddress sa = new InetSocketAddress(ip, port);
+                socket.connect(sa);
             }
-
-            SocketAddress sa = new InetSocketAddress(ip, port);
-            socket.connect(sa);
         } catch (IOException ex) {
             ex.printStackTrace(System.err);
         }
@@ -225,6 +228,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -239,6 +243,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -253,6 +258,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -267,6 +273,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -281,6 +288,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -295,6 +303,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -309,6 +318,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -323,6 +333,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -337,6 +348,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -351,6 +363,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -365,6 +378,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -379,6 +393,7 @@ public class RootLayoutController implements Initializable {
 
         int lastPos = dispatchSeeds(position, seedNumber);
         retrieveSeeds(lastPos, seedNumber);
+        togglePlayerTurn();
         updateButtons();
     }
 
@@ -392,13 +407,22 @@ public class RootLayoutController implements Initializable {
         int i = lastPos;
         while (seedNumber > 0) {
             if (tab[i] == 2 || tab[i] == 3) {
-                playerOneSeedNumber.setText(String.valueOf(
-                        Integer.parseInt(playerOneSeedNumber.getText()) + tab[i])
-                );
-                tab[i] = 0;
+                if (playerTurn) {
+                    playerOneSeedNumber.setText(String.valueOf(
+                            Integer.parseInt(playerOneSeedNumber.getText()) + tab[i])
+                    );
+                    tab[i] = 0;
 
-                playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + playerOneSeedNumber.getText() + ".png"));
+                    playerOneSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + playerOneSeedNumber.getText() + ".png"));
+                } else {
+                    playerTwoSeedNumber.setText(String.valueOf(
+                            Integer.parseInt(playerTwoSeedNumber.getText()) + tab[i])
+                    );
+                    tab[i] = 0;
 
+                    playerTwoSeeds.setImage(new Image("/com/ensicaen/awale/resources/images/seeds/seed_" + playerTwoSeedNumber.getText() + ".png"));
+                }
+                
                 i = (i + 11) % 12; //+11 pour revenir a la case précédente.
             } else {
                 break;
@@ -448,6 +472,36 @@ public class RootLayoutController implements Initializable {
         opponentButton_4.setText(String.valueOf(tab[9]));
         opponentButton_5.setText(String.valueOf(tab[10]));
         opponentButton_6.setText(String.valueOf(tab[11]));
+
+        if (playerTurn) {
+            opponentButton_1.setDisable(true);
+            opponentButton_2.setDisable(true);
+            opponentButton_3.setDisable(true);
+            opponentButton_4.setDisable(true);
+            opponentButton_5.setDisable(true);
+            opponentButton_6.setDisable(true);
+
+            playerButton_1.setDisable(false);
+            playerButton_2.setDisable(false);
+            playerButton_3.setDisable(false);
+            playerButton_4.setDisable(false);
+            playerButton_5.setDisable(false);
+            playerButton_6.setDisable(false);
+        } else {
+            playerButton_1.setDisable(true);
+            playerButton_2.setDisable(true);
+            playerButton_3.setDisable(true);
+            playerButton_4.setDisable(true);
+            playerButton_5.setDisable(true);
+            playerButton_6.setDisable(true);
+
+            opponentButton_1.setDisable(false);
+            opponentButton_2.setDisable(false);
+            opponentButton_3.setDisable(false);
+            opponentButton_4.setDisable(false);
+            opponentButton_5.setDisable(false);
+            opponentButton_6.setDisable(false);
+        }
     }
 
     /**
@@ -478,6 +532,13 @@ public class RootLayoutController implements Initializable {
                 playerTwoSeedNumber.setText(st.nextToken());
             }
         }
+    }
+
+    /**
+     * Manage the alternance between player and opponent.
+     */
+    public void togglePlayerTurn() {
+        playerTurn = !playerTurn;
     }
 
     /**

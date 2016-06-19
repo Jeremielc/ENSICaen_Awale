@@ -30,6 +30,7 @@ public class ENSICaen_Awale extends Application {
             rlc.setOwner(primaryStage);
 
             primaryStage.getIcons().add(new Image("/com/ensicaen/awale/resources/images/icon.png"));
+            primaryStage.setResizable(false);
             primaryStage.setTitle("Awale");
             primaryStage.setScene(scene);
             primaryStage.show();

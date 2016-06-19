@@ -45,6 +45,8 @@ public class ConnectionLayoutController implements Initializable {
 
     @FXML
     public void handleCancel() {
+        String s = ";;";
+        parameter = s;
         connectionStage.close();
     }
 
@@ -53,7 +55,7 @@ public class ConnectionLayoutController implements Initializable {
                 + ";" + port.getText().trim()
                 + ";" + name.getText().trim();
 
-        this.parameter = s;
+        parameter = s;
     }
 
     public void setConnectionStage(Stage connectionStage) {
@@ -61,6 +63,6 @@ public class ConnectionLayoutController implements Initializable {
     }
     
     public String getParameters() {
-        return this.parameter;
+        return parameter;
     }
 }
